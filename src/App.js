@@ -7,6 +7,8 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Preview from './components/Preview/Preview';
+import Chats from './components/Chats/Chats';
 
 
 function App() {
@@ -16,11 +18,14 @@ function App() {
       <div className="app__body">
 
         <Switch>
-          <Route path="/">
+          <Route exact path="/">
             <WebCamCapture/>
           </Route>
           <Route path="/preview">
-            <WebCamCapture/>
+            <Preview/>
+          </Route>
+          <Route path="/chats">
+            <Chats/>
           </Route>
         </Switch>
         
