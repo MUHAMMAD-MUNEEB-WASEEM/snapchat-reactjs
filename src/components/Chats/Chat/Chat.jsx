@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import ReactTimeago from 'react-timeago'
 import { selectImage } from '../../../features/appSlice'
 import './Chat.css'
-import db from '../../../firebase'
+import {db} from '../../../firebase'
 import { useHistory } from 'react-router'
 
 
@@ -29,7 +29,10 @@ function Chat({ id, username, timestamp, read, imageUrl, profilePic }) {
             <Avatar className="chat__avatar" src={profilePic}/>
             <div className="chat__info">
                 <h4>{username}</h4>
-                <p>Tap to view - <ReactTimeago date={new Date(timestamp?.toDate()).toUTCString()}/></p>
+                <p>
+                    {!read && ("Tap to view -")} {" "}
+                    <ReactTimeago date={new Date(timestamp?.toDate()).toUTCString()}/>
+                </p>
             </div>
             {!read && <StopRounded className="chat__readIcon"/>}
         </div>
