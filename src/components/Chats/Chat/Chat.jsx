@@ -1,11 +1,27 @@
 import { Avatar } from '@material-ui/core'
 import { StopRounded } from '@material-ui/icons'
+import { useDispatch, useSelector } from 'react-redux'
 import ReactTimeago from 'react-timeago'
+import { selectImage } from '../../../features/appSlice'
 import './Chat.css'
+import db from '../../../firebase'
+import { useHistory } from 'react-router'
+
+
 function Chat({ id, username, timestamp, read, imageUrl, profilePic }) {
     
+    const dispatch = useDispatch();
+    const history = useHistory()
+
     const open = () => {
-        
+        if (!read){
+            dispatch(selectImage(imageUrl))
+            db.collection('posts').doc(id).set({
+                read: true,
+            }, { merge: true });
+
+            history.push('/chats/view');
+        }
     }
 
     return (
