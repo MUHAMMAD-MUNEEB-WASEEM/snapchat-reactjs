@@ -1,5 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
+## About App
+This app is inspired from snapchat. It is made using react.js, redux, firebase firestore and storage as database and firebase authentication for auth
+
 ## Available Scripts
 
 In the project directory, you can run:
